@@ -12,7 +12,7 @@ La página de inicio de sesión tiene un diseño amigable y elegante, ideal para
 
 ## Autores
 
-- [Tu Nombre](https://github.com/GozuCtrs) - Desarrollador del proyecto
+- [Gianmarco Steve Contreras Coronel](https://github.com/GozuCtrs) - Desarrollador del proyecto
 
 
 ## Captura de Pantalla
