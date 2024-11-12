@@ -17,7 +17,7 @@ La página de inicio de sesión tiene un diseño amigable y elegante, ideal para
 
 ## Captura de Pantalla
 
-![Captura de Pantalla de la Página de Inicio de Sesión](imagenes/captura_pantalla.png)
+![Captura de Pantalla de la Página de Inicio de Sesión](view/imagenes/captura_pantalla.png)
 
 ## Características
 
