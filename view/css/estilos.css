@@ -65,7 +65,7 @@ body {
     left: 20px;
 }
 
-.contenedor_formulario_login {
+.panel_derecho{
     width: 200px;
     height: 290px;
     position: relative;
@@ -115,7 +115,7 @@ body {
     margin-left: 86px;
 }
 
-.contenedor_perfil {
+.panel_izquierdo{
     background-image: url(../imagenes/fondo_trasero_perfil.png);
     background-size: contain;
     background-repeat: no-repeat;

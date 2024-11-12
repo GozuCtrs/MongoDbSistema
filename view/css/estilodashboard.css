@@ -1,0 +1,104 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #0f0f0f;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+body {
+    background-color: #c3dee4;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.caja_principal{
+    position: relative;
+    width: 97%;
+    height: 92vh;
+    margin: auto;
+    margin-top: 23px;
+    background-color: #F5F5F5;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #0004;
+    display: flex;   
+    overflow: hidden;
+}
+
+.panel_izquierdo{
+    width: 200px;
+    height: 86vh;
+    background-color: white;
+    position: fixed;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #0003;
+    padding: 20px;
+}
+
+.hola_usuario{
+    font-size: 20px;
+}
+
+.decoracion_linea_izquierda {
+    width: 100%;
+    height: 2px;
+    margin: 12px 0 15px 0;
+    background-color: #0f0f0f;
+    border: 50%;
+}
+
+.lista_paginas a {
+    display: block;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+.lista_paginas a.active {
+    background-color: #0f0f0f;
+    color: #eeeeee;
+    font-weight: bold;
+}
+
+.btn_cerrar_sesion {
+    position: absolute;
+    bottom: 15px;
+    text-decoration:underline 1px 2px;
+}
+
+.panel_derecho {
+    overflow-y: auto;
+    margin: 20px;
+    padding: 10px;
+    position: relative;
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    max-height: 86vh;
+}
+
+.titulo_navegacion_contenido {
+    font-size: 40px;
+    text-transform: uppercase;
+}
+
+.decoracion_linea_derecha {
+    width: 100%;
+    height: 2px;
+    margin: 12px 0 15px 0;
+    background-color: #0f0f0f;
+    border: 50%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
