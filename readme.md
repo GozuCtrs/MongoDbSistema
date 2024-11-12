@@ -19,6 +19,7 @@ La página de inicio de sesión tiene un diseño amigable y elegante, ideal para
 
 ![Captura de Pantalla de la Página de Inicio de Sesión](view/imagenes/captura_pantalla.png)
 
+![Captura de Pantalla de la Página de Inicio de Sesión](view/imagenes/captura_pantalla2.png)
 ## Características
 
 - **Estilo visual**: Fondo con imágenes y sombras, elementos con bordes redondeados, y decoración visual de círculos.
