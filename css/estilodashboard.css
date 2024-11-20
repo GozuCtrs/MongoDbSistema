@@ -2,49 +2,40 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: #0f0f0f;
+    color: #343A40;
     text-decoration: none;
     list-style-type: none;
 }
 
 body {
-    background-color: #c3dee4;
+    background-color: #F4F6F9;
     font-family: Arial, Helvetica, sans-serif;
-}
-
-.caja_principal{
-    position: relative;
-    width: 97%;
-    height: 92vh;
-    margin: auto;
-    margin-top: 23px;
-    background-color: #F5F5F5;
-    border-radius: 15px;
-    box-shadow: 0 0 15px #0004;
-    display: flex;   
     overflow: hidden;
+
 }
 
 .panel_izquierdo{
     width: 200px;
-    height: 86vh;
-    background-color: white;
+    height: 100vh;
+    background-color: #343A40;
     position: fixed;
-    margin: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px #0003;
+    top: 0; 
+    left: 0;
+    box-shadow: 0 0 30px #0008;
     padding: 20px;
+    
 }
 
 .hola_usuario{
     font-size: 20px;
+    color: #C2C7D0;
 }
 
 .decoracion_linea_izquierda {
     width: 100%;
     height: 2px;
     margin: 12px 0 15px 0;
-    background-color: #0f0f0f;
+    background-color: #C2C7D0;
     border: 50%;
 }
 
@@ -54,11 +45,12 @@ body {
     border-radius: 8px;
     margin-top: 15px;
     font-size: 13px;
+    color: #C2C7D0;
 }
 
 .lista_paginas a.active {
-    background-color: #0f0f0f;
-    color: #eeeeee;
+    background-color: #386FB5;
+    color: #ffffff;
     font-weight: bold;
 }
 
@@ -73,9 +65,9 @@ body {
     margin: 20px;
     padding: 10px;
     position: relative;
-    margin-left: 250px;
-    width: calc(100% - 250px);
-    max-height: 86vh;
+    margin-left: 210px;
+    width: calc(100% - 210px);
+    max-height: 93vh;
 }
 
 .titulo_navegacion_contenido {
@@ -91,8 +83,11 @@ body {
     border: 50%;
 }
 
-
-
+.caja_iframe {
+    width: 100%;
+    height: 76vh;
+    border-style: none;
+}
 
 
 
