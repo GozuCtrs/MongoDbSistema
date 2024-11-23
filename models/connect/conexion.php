@@ -1,7 +1,7 @@
 <?php
     require_once $_SERVER['DOCUMENT_ROOT'].'/etc/config.php';
 
-class conexion {
+class Conexion {
     //public
     
     //protegida
@@ -13,30 +13,35 @@ class conexion {
     private $passwordb;
     private $charset;
 
-    private $pdo;
+    private static $pdo = null;
 
-    public function __construct($host,$namedb,$userdb,$passwordb,$charset='utf8') {
-        $this->host = $host;
-        $this->namedb = $namedb;
-        $this->userdb = $userdb;
-        $this->passwordb = $passwordb;
-        $this->charset = $charset;
-        $this->conectar();
+    public function __construct() {
+        $this->host = DB_HOST;
+        $this->namedb = DB_NAME;
+        $this->userdb = DB_USER;
+        $this->passwordb = DB_PASS;
+        $this->charset = 'utf8';
+        if(self::$pdo == null){
+            $this->conectar();
+        }
     }
 
-    public function conectar(){
+    private function conectar(){
         $dsn = "mysql:host={$this->host};dbname={$this->namedb};charset={$this->charset}";
 
         try {
-            $this->pdo = new PDO($dsn, $this->userdb, $this->passwordb);
-            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch(PDOexception $e) {
+            self::$pdo = new PDO($dsn, $this->userdb, $this->passwordb);
+            self::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch(PDOException $e) {
             die("hubo un error". $e->getMessage());
         }
     }
 
-    public function obtenerConexion() {
-        return $this->pdo;
+    public static function obtenerConexion() {
+        if (self::$pdo == null){
+            new self;
+        }
+        return self::$pdo;
     }
 
     public function contesta() {
@@ -46,5 +51,4 @@ class conexion {
 
     }
 
-    //echo "La compilacion esta OK"
 ?>

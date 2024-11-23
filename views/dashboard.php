@@ -1,12 +1,13 @@
 <?php
 
+require_once $_SERVER['DOCUMENT_ROOT'] . '/etc/config.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/models/connect/conexion.php';
+
+
 session_start();
 if (!isset($_SESSION["txtusername"])) {
     header('Location: ' . get_urlBase('index.php'));
 }
-
-require_once $_SERVER['DOCUMENT_ROOT'] . '/etc/config.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/models/connect/conexion.php';
 
 $opcionActual = isset($_GET['opcion']) ? $_GET['opcion'] : 'inicio';
 
@@ -51,16 +52,16 @@ $opcionActual = isset($_GET['opcion']) ? $_GET['opcion'] : 'inicio';
                         echo "<iframe src='" . get_views("inicio.php") . "' class='caja_iframe'> </iframe>";
                         break;
                     case 'ver':
-                        echo "<iframe src='" . get_views("verdatos.php") . "' class='caja_iframe'> </iframe>";
+                        echo "<iframe src='" . get_controllers("controladorUsuario.php") . "' class='caja_iframe'> </iframe>";
                         break;
                     case 'ingresar':
-                        echo "<iframe src='" . get_views("ingresardatos.php") . "' class='caja_iframe'> </iframe>";
+                        echo "<iframe src='" . get_controllers("controladorIngresarUsuario.php") . "' class='caja_iframe'> </iframe>";
                         break;
                     case 'eliminar':
-                        echo "<iframe src='" . get_views("eliminardatos.php") . "' class='caja_iframe'> </iframe>";
+                        echo "<iframe src='" . get_controllers("controladorEliminarUsuario.php") . "' class='caja_iframe'> </iframe>";
                         break;
                     case 'modificar':
-                        echo "<iframe src='" . get_views("modificardatos.php") . "' class='caja_iframe'> </iframe>";
+                        echo "<iframe src='" . get_controllers("controladorModificarUsuario.php") . "' class='caja_iframe'> </iframe>";
                         break;
                 }
             }

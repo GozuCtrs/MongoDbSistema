@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.caja_contenido_crud {
+    margin: 10px;
+    background-color: white;
+    padding: 20px;
+    max-height: 400px;
+    clip-path: inset(0 round 15px);
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    border-radius: 15px;
+    box-shadow: 0 0 10px #0004;
+}
+
+.tabla_datos_usuarios {
+    width: 100%;
+    max-height: 320px;
+    position: sticky;
+    overflow-y: auto;
+    z-index: 2;
+    background-color: white;
+    
+}
+
+.txt_subtitulo_accion_crud{
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    box-shadow: 0 1px 0 black;
+    font-weight: bold
+}
+
+.txt_titulo_lista{
+    position: sticky;
+    background-color: white;
+    top: 0;
+    z-index: 3;
+    padding-bottom: 5px;
+    border-bottom: 3px solid black;
+}
+
+td,th{ 
+    padding: 5px 20px;
+    border: 1px solid black;
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+th{
+    background-color: white;
+    position: sticky;
+    top:0px; 
+    z-index: 1;
+}
+
+.txt_input {
+    margin: 0 0 15px 0;
+}
+
+.btn_enviar {
+    background-color: #386fb5;
+    color: white;
+}
