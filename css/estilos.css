@@ -115,6 +115,18 @@ body {
     margin-left: 86px;
 }
 
+.mensaje_error{
+    width: 100%;
+    height: 50px;
+    background-color: #F9EAE7;
+    border: 1.5px solid #BF3E1A;
+    text-align: center;
+}
+
+.mensaje_error p {
+    margin: 8px;
+}
+
 .panel_izquierdo{
     background-image: url(../img/fondo_trasero_perfil.png);
     background-size: contain;

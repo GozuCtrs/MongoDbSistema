@@ -6,7 +6,7 @@
 session_start();
 
 $estado = $_GET['estado'] ?? 'denegado';
-$redirectURL = $estado == 'admitido' ? get_views('dashboard.php?opcion=inicio') : get_views('claveequivocada.php');
+$redirectURL = $estado == 'admitido' ? get_controllers('controladorDashboard.php?opcion=inicio') : get_views('claveequivocada.php');
 
 
 ?>

@@ -62,11 +62,13 @@ class modeloUsuario
 
     public function listarUsuarios() {
         try {
-            $query = $this->conexion->query('SELECT id, username, perfil FROM usuarios');
+            $query = $this->conexion->query('SELECT id, username,password, perfil FROM usuarios');
             return $query->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             throw new Exception('Error al listar usuarios: ' . $e->getMessage());
         }
     }
+
+    
     
 }
