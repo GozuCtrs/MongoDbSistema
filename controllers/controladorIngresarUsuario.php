@@ -1,6 +1,7 @@
 <?php
-session_start();
-
+if (session_status()==PHP_SESSION_NONE){
+    session_start();
+    }
     require_once $_SERVER['DOCUMENT_ROOT'].'/etc/config.php';
     require_once $_SERVER['DOCUMENT_ROOT'].'/models/modeloUsuario.php';
     require_once $_SERVER['DOCUMENT_ROOT'].'/views/vistaIngresarUsuario.php';
@@ -22,11 +23,12 @@ session_start();
         try {
             $modeloUsuario->insertarUsuario($tmpdateuser, $tmpdatepassword, $tmpdateperfil);
             $mensaje =  'Usuario registrado correctamente. <br>';
+            header('Location: ' . get_urlBase('controllers/controladorDashboard.php?opcion=usuarios'));
         } catch (PDOException $e) {
             $mensaje =  'Error al registrar usuario: '.$e->getMessage();
         }
         exit();
-    
+        
     }
 mostrarFormularioIngreso($mensaje);
 ?>

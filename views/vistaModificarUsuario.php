@@ -1,8 +1,5 @@
 <?php
-function mostrarFormularioEditar($user_data = null, $mensaje = '')
-
-
-{
+function mostrarFormularioEditar($user_data = null, $mensaje = ''){
 ?>
     <h2>Modificar Usuario</h2>
     <?php if ($mensaje) {
@@ -68,15 +65,15 @@ function mostrarFormularioEditar($user_data = null, $mensaje = '')
                     <td><?php echo str_repeat('*', strlen($usuario['password'])) ?></td>
                     <td><?php echo $usuario['perfil'] ?></td>
                     <td>
-    <a href="javascript:void(0);"
-       class="btn_eliminar"
-       onclick="confirmarEliminacion('<?php echo $usuario['username']; ?>', '<?php echo get_urlBase('controllers/controladoreliminarusuario.php?datusuario=' . urlencode($usuario['username'])); ?>');">
-       Eliminar
-    </a>
-</td>
-
-                    <td><a href="?edit_id=<?php echo $usuario['id']; ?>">Editar</a></td>
-                </tr>
+                        <a href="javascript:void(0);"
+                           class="btn_eliminar"
+                           onclick="confirmarEliminacion('<?php echo $usuario['username']; ?>', '<?php echo get_urlBase('controllers/controladoreliminarusuario.php?datusuario=' . urlencode($usuario['username'])); ?>');">
+                           Eliminar
+                        </a>
+                    </td>
+                    <td>
+                    <a href="?opcion=usuarios&edit_id=<?php echo $usuario['id']; ?>">Editar</a>
+                    </tr>
             <?php
             }
             ?>
@@ -101,10 +98,6 @@ function mostrarFormularioEditar($user_data = null, $mensaje = '')
         });
     }
 </script>
-
-    <?php
+         <?php
     }
-    ?>
-<?php
 }
-?>

@@ -36,8 +36,14 @@ function get_controllers($arg1)
     return get_path('controllers',$arg1);
 }
 
-//echo 'kcha perros juan';
-//echo URL_base;
-//echo get_urlBase('');
-//echo get_models('modeloUsuario.php');
-//echo get_urlBase('pagina.html');
+function get_views_disk($arg1)
+{
+    return $_SERVER['DOCUMENT_ROOT'] . '/views/'.$arg1;
+}
+
+function get_controllers_disk($arg1)
+{
+    return $_SERVER['DOCUMENT_ROOT'] . '/controllers/'.$arg1;
+}
+
+

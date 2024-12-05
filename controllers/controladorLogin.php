@@ -1,26 +1,38 @@
 <?php
-session_start();
-require_once $_SERVER['DOCUMENT_ROOT'].'/etc/config.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/etc/config.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/models/modeloUsuario.php';
 
-if (isset($_SESSION["txtusername"])) {
-    header('Location: ' . get_views('dashboard.php'));
-    exit();
+if ($_SERVER["REQUEST_METHOD"] === "GET") {
+    // Si no es una solicitud AJAX, carga la vista de login.
+    include get_views_disk('vistaLogin.php');
+    exit;
 }
 
-$mensaje = '';
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // Solo manejar solicitudes AJAX para la validación.
+    if (empty($_SERVER['HTTP_X_REQUESTED_WITH']) || strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) !== 'xmlhttprequest') {
+        http_response_code(400);
+        echo json_encode(['success' => false, 'message' => 'Acceso no permitido']);
+        exit;
+    }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $v_username = $_POST["txtusername"] ?? '';
     $v_password = $_POST["txtpassword"] ?? '';
 
-    if ($v_username === "Marco" && $v_password === "1234") {
+    $modeloUsuario = new modeloUsuario();
+    $credenciales = $modeloUsuario->ValidadUsuario($v_username, $v_password);
+
+    if ($credenciales) {
+        session_start();
         $_SESSION["txtusername"] = $v_username;
-        $_SESSION["txtpassword"] = $v_password;
-        header('Location: ' . get_views('pantallacarga.php?estado=admitido'));
-        exit();
+        echo json_encode(['success' => true, 'redirect' => get_controllers('controladorDashboard.php')]);
     } else {
-        $mensaje = 'Usuario o contraseña incorrectos.';
+        echo json_encode(['success' => false, 'message' => 'Usuario o contraseña incorrectos.']);
     }
+    exit;
 }
 
-require_once $_SERVER['DOCUMENT_ROOT'].'/views/vistaLogin.php';
+http_response_code(405);
+echo json_encode(['success' => false, 'message' => 'Método no permitido']);
+exit;
+?>

@@ -1,3 +1,8 @@
+<?
+require_once $_SERVER['DOCUMENT_ROOT'] . '/etc/config.php';
+  
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,19 +33,10 @@
         <div class="decoracion_linea_derecha"></div>
         <div class="contenido_pagina">
             <?php
-            switch ($opcionActual) {
-                case 'inicio':
-                    echo "<iframe src='" . get_views("vistaInicio.php") . "' class='caja_iframe'> </iframe>";
-                    break;
-                case 'usuarios':
-                    echo "<iframe src='" . get_controllers("controladorModificarUsuario.php") . "' class='caja_iframe'> </iframe>";
-                    break;
-                case 'ingresar':
-                    echo "<iframe src='" . get_controllers("controladorIngresarUsuario.php") . "' class='caja_iframe'> </iframe>";
-                    break;
-                default:
-                    echo "<p>Opción no válida</p>";
-                    break;
+            if (isset($contenido)){
+            echo $contenido;
+            } else {
+                echo "<h1> bienvenido al sistema </h1>";
             }
             ?>
         </div>

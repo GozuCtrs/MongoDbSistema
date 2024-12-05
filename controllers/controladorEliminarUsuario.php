@@ -1,6 +1,7 @@
 <?php
-session_start();
-
+if (session_status()==PHP_SESSION_NONE){
+    session_start();
+    }
 require_once $_SERVER['DOCUMENT_ROOT'].'/etc/config.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/models/modeloUsuario.php';
 if (!isset($_SESSION["txtusername"])) {
@@ -25,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['datusuario'])) {
             } else {
                 $mensaje = 'No se encontró un usuario con el nombre especificado.';
             }
-            header('Location: ' . get_urlBase('controllers/controladorModificarUsuario.php'));
+            header('Location: ' . get_urlBase('controllers/controladorDashboard.php?opcion=usuarios'));
         } catch (Exception $e) {
             $mensaje = $e->getMessage();
         }

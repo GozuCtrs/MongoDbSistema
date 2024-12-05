@@ -1,6 +1,5 @@
 <?php 
 
-session_start();
 if(!isset($_SESSION["txtusername"])){
     header('Location: '.get_urlBase('index.php'));
 }
