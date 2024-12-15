@@ -1,0 +1,367 @@
+---------------------------------------------------------------------
+-- -- -- -- -- -- -- --  INDICE PIPELINES  -- -- -- -- -- -- -- -- --
+---------------------------------------------------------------------
+-- -> Ver facturas por cliente                          (  13 - 91  )  
+-- -> Ver facturas por vendedor                         ( 098 - 166 )
+-- -> Ver total facturas por fecha                      ( 175 - 219 )
+-- -> Ver inventario por magnitudes                     ( 226 - 263 )
+-- -> Ver magnitudes por unidades                       ( 270 - 306 )
+-- -> Ver productos mas vendidos por categoria          ( 313 - 367 )
+---------------------------------------------------------------------
+
+
+----FACTURAS POR CLIENTE----
+db.facturas.aggregate([
+  {
+    $lookup: {
+      from: "detalle_orden",
+      localField: "id_detalle_orden",
+      foreignField: "id_detalle_orden",
+      as: "detalle_orden"
+    }
+  },
+  { $unwind: "$detalle_orden" },
+  {
+    $lookup: {
+      from: "ordenes_compra",
+      localField: "detalle_orden.id_orden",
+      foreignField: "id_orden",
+      as: "ordenes_compra"
+    }
+  },
+  { $unwind: "$ordenes_compra" },
+  {
+    $lookup: {
+      from: "clientes",
+      localField: "ordenes_compra.id_cliente",
+      foreignField: "id_cliente",
+      as: "clientes"
+    }
+  },
+  { $unwind: "$clientes" },
+  {
+    $lookup: {
+      from: "persona",
+      localField: "clientes.id_persona",
+      foreignField: "id_persona",
+      as: "persona"
+    }
+  },
+  { $unwind: "$persona" },
+  {
+    $lookup: {
+      from: "tipo_documento",
+      localField: "persona.id_tipo_documento",
+      foreignField: "id_tipo_documento",
+      as: "tipo_documento"
+    }
+  },
+  { $unwind: "$tipo_documento" },
+  {
+    $lookup: {
+      from: "productos",
+      localField: "detalle_orden.id_producto",
+      foreignField: "id_producto",
+      as: "productos"
+    }
+  },
+  { $unwind: "$productos" },
+  {
+    $lookup: {
+      from: "metodo_pago",
+      localField: "id_metodo_pago",
+      foreignField: "id_metodo_pago",
+      as: "metodo_pago"
+    }
+  },
+  { $unwind: "$metodo_pago" },
+  {
+    $project: {
+      id_factura: 1,
+      cliente: { $concat: ["$persona.nombre", " ", "$persona.apellidos"] },
+      documento_identidad: "$persona.documento_identidad",
+      tipo_documento: "$tipo_documento.tipo_documento",
+      producto: "$productos.nombre",
+      cantidad: "$detalle_orden.cantidad",
+      metodo_pago: "$metodo_pago.nombre_metodo",
+      total: "$total",
+      fecha: "$fecha"
+    }
+  }
+]);
+
+
+
+
+
+
+----FACTURAS POR VENDEDOR----
+db.facturas.aggregate([
+  {
+    $lookup: {
+      from: "detalle_orden",
+      localField: "id_detalle_orden",
+      foreignField: "id_detalle_orden",
+      as: "detalle_orden"
+    }
+  },
+  { $unwind: "$detalle_orden" },
+  {
+    $lookup: {
+      from: "ordenes_compra",
+      localField: "detalle_orden.id_orden",
+      foreignField: "id_orden",
+      as: "ordenes_compra"
+    }
+  },
+  { $unwind: "$ordenes_compra" },
+  {
+    $lookup: {
+      from: "vendedores",
+      localField: "ordenes_compra.id_vendedor",
+      foreignField: "id_vendedor",
+      as: "vendedores"
+    }
+  },
+  { $unwind: "$vendedores" },
+  {
+    $lookup: {
+      from: "persona",
+      localField: "vendedores.id_persona",
+      foreignField: "id_persona",
+      as: "persona"
+    }
+  },
+  { $unwind: "$persona" },
+  {
+    $lookup: {
+      from: "productos",
+      localField: "detalle_orden.id_producto",
+      foreignField: "id_producto",
+      as: "productos"
+    }
+  },
+  { $unwind: "$productos" },
+  {
+    $lookup: {
+      from: "metodo_pago",
+      localField: "id_metodo_pago",
+      foreignField: "id_metodo_pago",
+      as: "metodo_pago"
+    }
+  },
+  { $unwind: "$metodo_pago" },
+  {
+    $project: {
+      id_factura: 1,
+      vendedor: { $concat: ["$persona.nombre", " ", "$persona.apellidos"] },
+      area_ventas: "$vendedores.area_ventas",
+      producto: "$productos.nombre",
+      cantidad: "$detalle_orden.cantidad",
+      total: "$total",
+      fecha: "$fecha",
+      metodo_pago: "$metodo_pago.nombre_metodo"
+    }
+  }
+]);
+
+
+
+
+
+
+
+
+----TOTAL FACTURAS POR FECHA----
+db.facturas.aggregate([
+  {
+    $lookup: {
+      from: "metodo_pago",
+      localField: "id_metodo_pago",
+      foreignField: "id_metodo_pago",
+      as: "metodo_pago"
+    }
+  },
+  { $unwind: "$metodo_pago" },
+  {
+    $addFields: {
+      fecha: { $toDate: "$fecha" }  // Convertimos el campo 'fecha' de string a Date
+    }
+  },
+  {
+    $group: {
+      _id: { $dateToString: { format: "%Y-%m-%d", date: "$fecha" } },
+      total_facturas: { $count: {} },
+      monto_total: { $sum: "$total" },
+      metodos_pago_usados: { $push: "$metodo_pago.nombre_metodo" }
+    }
+  },
+  {
+    $project: {
+      fecha: "$_id",
+      total_facturas: 1,
+      monto_total: 1,
+      metodos_pago_usados: {
+        $reduce: {
+          input: "$metodos_pago_usados",
+          initialValue: "",
+          in: {
+            $cond: {
+              if: { $eq: [{ $indexOfBytes: ["$$value", ""] }, -1] },
+              then: { $concat: ["$$value", "$$this"] },
+              else: { $concat: ["$$value", ", ", "$$this"] }
+            }
+          }
+        }
+      }
+    }
+  }
+]);
+
+
+
+
+
+
+----INVENTARIO POR MAGNITUDES----
+db.inventario.aggregate([
+  {
+    $lookup: {
+      from: "productos",
+      localField: "id_producto",
+      foreignField: "id_producto",
+      as: "productos"
+    }
+  },
+  { $unwind: "$productos" },
+  {
+    $lookup: {
+      from: "categoria",
+      localField: "productos.id_categoria",
+      foreignField: "id_categoria",
+      as: "categoria"
+    }
+  },
+  { $unwind: "$categoria" },
+  {
+    $match: { "productos.tipo_de_venta": 1 }
+  },
+  {
+    $project: {
+      id_producto: "$productos.id_producto",
+      producto: "$productos.nombre",
+      categoria: "$categoria.nombre_categoria",
+      stock: "$stock",
+      precio_magnitud: "$productos.precio_magnitud",
+      tipo_magnitud: "$productos.tipo_magnitud",
+      umbral_minimo: "$umbral_minimo",
+      estado_stock: {
+        $cond: [{ $lte: ["$stock", "$umbral_minimo"] }, "Requiere Reposición", "Stock Suficiente"]
+      }
+    }
+  }
+]);
+
+
+
+
+
+
+----INVENTARIO POR UNIDADES----
+db.inventario.aggregate([
+  {
+    $lookup: {
+      from: "productos",
+      localField: "id_producto",
+      foreignField: "id_producto",
+      as: "productos"
+    }
+  },
+  { $unwind: "$productos" },
+  {
+    $lookup: {
+      from: "categoria",
+      localField: "productos.id_categoria",
+      foreignField: "id_categoria",
+      as: "categoria"
+    }
+  },
+  { $unwind: "$categoria" },
+  {
+    $match: { "productos.tipo_de_venta": 0 }
+  },
+  {
+    $project: {
+      id_producto: "$productos.id_producto",
+      producto: "$productos.nombre",
+      categoria: "$categoria.nombre_categoria",
+      stock: "$stock",
+      precio_unitario: "$productos.precio_unitario",
+      umbral_minimo: "$umbral_minimo",
+      estado_stock: {
+        $cond: [{ $lte: ["$stock", "$umbral_minimo"] }, "Requiere Reposición", "Stock Suficiente"]
+      }
+    }
+  }
+]);
+
+
+
+
+
+
+----PRODUCTOS MAS VENDIDOS POR CATEGORIA----
+db.facturas.aggregate([
+  {
+    $lookup: {
+      from: "detalle_orden",
+      localField: "id_detalle_orden",
+      foreignField: "id_detalle_orden",
+      as: "detalle_orden"
+    }
+  },
+  { $unwind: "$detalle_orden" },
+  {
+    $lookup: {
+      from: "productos",
+      localField: "detalle_orden.id_producto",
+      foreignField: "id_producto",
+      as: "productos"
+    }
+  },
+  { $unwind: "$productos" },
+  {
+    $lookup: {
+      from: "categoria",
+      localField: "productos.id_categoria",
+      foreignField: "id_categoria",
+      as: "categoria"
+    }
+  },
+  { $unwind: "$categoria" },
+  {
+    $group: {
+      _id: {
+        producto: "$productos.id_producto",
+        nombre_producto: "$productos.nombre",
+        categoria: "$categoria.nombre_categoria"
+      },
+      cantidad_vendida: { $sum: "$detalle_orden.cantidad" }
+    }
+  },
+  {
+    $sort: { cantidad_vendida: -1 }  // Ordenar de mayor a menor cantidad
+  },
+  {
+    $group: {
+      _id: "$_id.categoria",
+      productos_mas_vendidos: {
+        $push: {
+          producto: "$_id.nombre_producto",
+          id_producto: "$_id.producto",
+          cantidad_vendida: "$cantidad_vendida"
+        }
+      }
+    }
+  }
+]);
