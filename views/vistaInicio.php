@@ -5,7 +5,7 @@ if(!isset($_SESSION["txtusername"])){
 }
 
 require_once $_SERVER['DOCUMENT_ROOT'].'/etc/config.php';
-require_once $_SERVER['DOCUMENT_ROOT'].'/models/connect/conexion.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/models/connect/conexionMongo.php';
 ?>
 <link rel="stylesheet" href="<?php echo get_urlBase('css/estiloinicio.css') ?>">
 <!DOCTYPE html>

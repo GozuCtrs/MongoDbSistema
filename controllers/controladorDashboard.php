@@ -4,7 +4,7 @@ if (session_status()==PHP_SESSION_NONE){
     }
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/etc/config.php';  
-require_once $_SERVER['DOCUMENT_ROOT'] . '/models/connect/conexion.php';  
+require_once $_SERVER['DOCUMENT_ROOT'] . '/models/connect/conexionMongo.php';  
 
 if (!isset($_SESSION["txtusername"])) {
     header('Location: ' . get_urlBase('index.php'));  
@@ -20,9 +20,9 @@ switch ($opcionActual) {
         include get_views_disk("vistaInicio.php");
         $contenido = ob_get_clean();
         break;
-    case 'usuarios':
+    case 'administradores':
         ob_start();
-        include get_controllers_disk("controladorModificarUsuario.php");
+        include get_controllers_disk("controladorAdministradores.php");
         $contenido = ob_get_clean();
         break;
     case 'ingresar':

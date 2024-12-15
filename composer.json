@@ -1,0 +1,12 @@
+{
+    "name": "gozuctrs/mongodbsistema",
+    "require": {
+        "mongodb/mongodb": "^1.20"
+    },
+    "authors": [
+        {
+            "name": "GozuCtrs",
+            "email": "gianmarco.contreras@unas.edu.pe"
+        }
+    ]
+}

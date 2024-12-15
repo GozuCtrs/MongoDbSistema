@@ -17,6 +17,23 @@
     box-shadow: 0 0 10px #0004;
 }
 
+.contenedor_cajas {
+    display:flex;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+}
+
+.formulario_ingreso{
+    position: relative;
+    display:ruby;
+    right: 0px;
+    margin-right: 70px;
+    max-height: 210px;
+    max-width: 300px;
+}
+
+
 .tabla_datos_usuarios {
     width: 100%;
     max-height: 320px;
@@ -26,6 +43,18 @@
     background-color: white;
     
 }
+
+.menu_seccion {
+    margin-bottom: 20px; /* Espacio entre las secciones */
+}
+
+h3 {
+    font-weight: bold;
+    color: white;
+    margin-bottom: 10px; /* Espacio debajo del título */
+    text-transform: uppercase;
+}
+
 
 .txt_subtitulo_accion_crud{
     margin-bottom: 10px;
@@ -41,6 +70,10 @@
     z-index: 3;
     padding-bottom: 5px;
     border-bottom: 3px solid black;
+}
+
+.margin {
+    margin-bottom: 10px;
 }
 
 td,th{ 

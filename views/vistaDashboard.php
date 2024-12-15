@@ -1,6 +1,6 @@
 <?
 require_once $_SERVER['DOCUMENT_ROOT'] . '/etc/config.php';
-  
+
 ?>
 
 <!DOCTYPE html>
@@ -21,8 +21,10 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/etc/config.php';
         <nav class="menu_navegacion">
             <ul class="lista_paginas">
                 <li class="btn_pagina"><a href="?opcion=inicio" class="<?= $opcionActual == 'inicio' ? 'active' : '' ?>">Inicio</a></li>
-                <li class="btn_pagina"><a href="?opcion=usuarios" class="<?= $opcionActual == 'usuarios' ? 'active' : '' ?>">Usuarios</a></li>
-                <li class="btn_pagina"><a href="?opcion=ingresar" class="<?= $opcionActual == 'ingresar' ? 'active' : '' ?>">Ingresar</a></li>
+
+                <div class="linea_separadora_listas_paginas"></div>
+                <li class="btn_subtitulo">colecciones</li>
+                <li class="btn_pagina"><a href="?opcion=administradores" class="<?= $opcionActual == 'administradores' ? 'active' : '' ?>">Administradores</a></li>
                 <li class="btn_cerrar_sesion"><a href="<?php echo get_controllers('logout.php') ?>">Cerrar sesión</a></li>
             </ul>
         </nav>
@@ -33,8 +35,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/etc/config.php';
         <div class="decoracion_linea_derecha"></div>
         <div class="contenido_pagina">
             <?php
-            if (isset($contenido)){
-            echo $contenido;
+            if (isset($contenido)) {
+                echo $contenido;
             } else {
                 echo "<h1> bienvenido al sistema </h1>";
             }

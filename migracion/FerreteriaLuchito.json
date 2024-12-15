@@ -1,0 +1,161 @@
+{
+  "tipo_documento": [
+    {"tipo_documento": "DNI", "numero_documento": "00000001"},
+    {"tipo_documento": "DNI", "numero_documento": "00000002"},
+    {"tipo_documento": "DNI", "numero_documento": "00000003"},
+    {"tipo_documento": "DNI", "numero_documento": "00000004"},
+    {"tipo_documento": "DNI", "numero_documento": "00000005"},
+    {"tipo_documento": "DNI", "numero_documento": "00000006"},
+    {"tipo_documento": "DNI", "numero_documento": "00000007"},
+    {"tipo_documento": "DNI", "numero_documento": "00000008"},
+    {"tipo_documento": "DNI", "numero_documento": "00000009"},
+    {"tipo_documento": "DNI", "numero_documento": "00000010"}
+  ],
+  "persona": [
+    {"nombre": "Juan", "apellidos": "Perez", "documento_identidad": "00000001", "id_tipo_documento": 1, "direccion": "Av. Principal 123", "telefono": "987654321", "email": "juan.perez@example.com"},
+    {"nombre": "Luis", "apellidos": "Gonzalez", "documento_identidad": "00000002", "id_tipo_documento": 1, "direccion": "Calle Secundaria 456", "telefono": "987654322", "email": "luis.gonzalez@example.com"},
+    {"nombre": "Ana", "apellidos": "Martinez", "documento_identidad": "00000003", "id_tipo_documento": 1, "direccion": "Jr. Comercio 789", "telefono": "987654323", "email": "ana.martinez@example.com"},
+    {"nombre": "Carlos", "apellidos": "Rodriguez", "documento_identidad": "00000004", "id_tipo_documento": 1, "direccion": "Pasaje Sol 101", "telefono": "987654324", "email": "carlos.rodriguez@example.com"},
+    {"nombre": "Elena", "apellidos": "Gomez", "documento_identidad": "00000005", "id_tipo_documento": 1, "direccion": "Av. Las Flores 202", "telefono": "987654325", "email": "elena.gomez@example.com"},
+    {"nombre": "Pedro", "apellidos": "Fernandez", "documento_identidad": "00000006", "id_tipo_documento": 1, "direccion": "Jr. Libertad 303", "telefono": "987654326", "email": "pedro.fernandez@example.com"},
+    {"nombre": "Maria", "apellidos": "Lopez", "documento_identidad": "00000007", "id_tipo_documento": 1, "direccion": "Calle Estrella 404", "telefono": "987654327", "email": "maria.lopez@example.com"},
+    {"nombre": "Sofía", "apellidos": "Jimenez", "documento_identidad": "00000008", "id_tipo_documento": 1, "direccion": "Av. Paz 505", "telefono": "987654328", "email": "sofia.jimenez@example.com"},
+    {"nombre": "Roberto", "apellidos": "Salazar", "documento_identidad": "00000009", "id_tipo_documento": 1, "direccion": "Jr. Amanecer 606", "telefono": "987654329", "email": "roberto.salazar@example.com"},
+    {"nombre": "Julia", "apellidos": "Vargas", "documento_identidad": "00000010", "id_tipo_documento": 1, "direccion": "Pasaje Luna 707", "telefono": "987654330", "email": "julia.vargas@example.com"}
+  ],
+  "clientes": [
+    {"id_persona": 1}, {"id_persona": 2}, {"id_persona": 3}, {"id_persona": 4}, 
+    {"id_persona": 5}, {"id_persona": 6}, {"id_persona": 7}, {"id_persona": 8}, 
+    {"id_persona": 9}, {"id_persona": 10}
+  ],
+  "vendedores": [
+    {"id_persona": 1, "area_ventas": "Ferretería Central"},
+    {"id_persona": 2, "area_ventas": "Ventas Industriales"},
+    {"id_persona": 3, "area_ventas": "Ventas al Por Mayor"},
+    {"id_persona": 4, "area_ventas": "Soporte Comercial"},
+    {"id_persona": 5, "area_ventas": "Proyectos Especiales"},
+    {"id_persona": 6, "area_ventas": "Ventas Menudeo"},
+    {"id_persona": 7, "area_ventas": "E-commerce"},
+    {"id_persona": 8, "area_ventas": "Atención al Cliente"},
+    {"id_persona": 9, "area_ventas": "Ventas Técnicas"},
+    {"id_persona": 10, "area_ventas": "Sucursal Norte"}
+  ],
+  "metodo_pago": [
+    {"nombre_metodo": "Efectivo"}, {"nombre_metodo": "Tarjeta de Crédito"}, {"nombre_metodo": "Tarjeta de Débito"},
+    {"nombre_metodo": "Transferencia Bancaria"}, {"nombre_metodo": "Cheque"}, {"nombre_metodo": "Yape"},
+    {"nombre_metodo": "Plin"}, {"nombre_metodo": "Pago Link"}, {"nombre_metodo": "Crédito Directo"}, {"nombre_metodo": "Otro"}
+  ],
+  "categoria": [
+    {"nombre_categoria": "Herramientas"}, {"nombre_categoria": "Materiales de Construcción"}, {"nombre_categoria": "Eléctricos"},
+    {"nombre_categoria": "Pinturas"}, {"nombre_categoria": "Fontanería"}, {"nombre_categoria": "Seguridad"},
+    {"nombre_categoria": "Maquinaria"}, {"nombre_categoria": "Adhesivos"}, {"nombre_categoria": "Madera"}, {"nombre_categoria": "Accesorios"}
+  ],
+  "productos": [
+    {"id_categoria": 1, "nombre": "Martillo", "precio_magnitud": null, "precio_unitario": 15.50, "liquidacion": 0, "tipo_magnitud": null, "tipo_de_venta": 0},
+    {"id_categoria": 1, "nombre": "Destornillador", "precio_magnitud": null, "precio_unitario": 10.00, "liquidacion": 0, "tipo_magnitud": null, "tipo_de_venta": 0},
+    {"id_categoria": 2, "nombre": "Cemento", "precio_magnitud": 45.00, "precio_unitario": null, "liquidacion": 0, "tipo_magnitud": "kg", "tipo_de_venta": 1},
+    {"id_categoria": 2, "nombre": "Arena", "precio_magnitud": 30.00, "precio_unitario": null, "liquidacion": 0, "tipo_magnitud": "m3", "tipo_de_venta": 1},
+    {"id_categoria": 3, "nombre": "Cable Eléctrico", "precio_magnitud": 100.00, "precio_unitario": null, "liquidacion": 0, "tipo_magnitud": "m", "tipo_de_venta": 1},
+    {"id_categoria": 3, "nombre": "Interruptor", "precio_magnitud": null, "precio_unitario": 5.00, "liquidacion": 0, "tipo_magnitud": null, "tipo_de_venta": 0},
+    {"id_categoria": 4, "nombre": "Pintura Blanca", "precio_magnitud": 120.00, "precio_unitario": null, "liquidacion": 0, "tipo_magnitud": "galón", "tipo_de_venta": 1},
+    {"id_categoria": 5, "nombre": "Llave Inglesa", "precio_magnitud": null, "precio_unitario": 25.00, "liquidacion": 0, "tipo_magnitud": null, "tipo_de_venta": 0},
+    {"id_categoria": 5, "nombre": "Tubo PVC", "precio_magnitud": 15.00, "precio_unitario": null, "liquidacion": 0, "tipo_magnitud": "m", "tipo_de_venta": 1},
+    {"id_categoria": 6, "nombre": "Guantes de Seguridad", "precio_magnitud": null, "precio_unitario": 12.00, "liquidacion": 0, "tipo_magnitud": null, "tipo_de_venta": 0}
+  ],
+  "inventario": [
+    {"id_producto": 1, "umbral_minimo": 10, "stock": 50},
+    {"id_producto": 2, "umbral_minimo": 15, "stock": 60},
+    {"id_producto": 3, "umbral_minimo": 20, "stock": 100},
+    {"id_producto": 4, "umbral_minimo": 30, "stock": 150},
+    {"id_producto": 5, "umbral_minimo": 10, "stock": 200},
+    {"id_producto": 6, "umbral_minimo": 25, "stock": 80},
+    {"id_producto": 7, "umbral_minimo": 5, "stock": 40},
+    {"id_producto": 8, "umbral_minimo": 12, "stock": 100},
+    {"id_producto": 9, "umbral_minimo": 10, "stock": 30},
+    {"id_producto": 10, "umbral_minimo": 8, "stock": 75}
+  ],
+  "proveedores": [
+    {"nombre": "Proveedor 1", "telefono": "999111111", "email": "prov1@example.com", "productos_suministrados": "Martillo, Destornillador"},
+    {"nombre": "Proveedor 2", "telefono": "999222222", "email": "prov2@example.com", "productos_suministrados": "Cemento, Arena"},
+    {"nombre": "Proveedor 3", "telefono": "999333333", "email": "prov3@example.com", "productos_suministrados": "Cable Eléctrico, Interruptor"},
+    {"nombre": "Proveedor 4", "telefono": "999444444", "email": "prov4@example.com", "productos_suministrados": "Pintura Blanca"},
+    {"nombre": "Proveedor 5", "telefono": "999555555", "email": "prov5@example.com", "productos_suministrados": "Llave Inglesa, Tubo PVC"},
+    {"nombre": "Proveedor 6", "telefono": "999666666", "email": "prov6@example.com", "productos_suministrados": "Guantes de Seguridad"},
+    {"nombre": "Proveedor 7", "telefono": "999777777", "email": "prov7@example.com", "productos_suministrados": "Pintura Blanca, Cemento"},
+    {"nombre": "Proveedor 8", "telefono": "999888888", "email": "prov8@example.com", "productos_suministrados": "Cemento, Llave Inglesa"},
+    {"nombre": "Proveedor 9", "telefono": "999999999", "email": "prov9@example.com", "productos_suministrados": "Arena, Guantes de Seguridad"},
+    {"nombre": "Proveedor 10", "telefono": "998888888", "email": "prov10@example.com", "productos_suministrados": "Interruptor, Martillo"}
+  ],
+  "orden_movimiento_proveedor": [
+    {"id_proveedor": 1, "fecha_movimiento_proveedor": "2024-12-14"},
+    {"id_proveedor": 2, "fecha_movimiento_proveedor": "2024-12-14"},
+    {"id_proveedor": 3, "fecha_movimiento_proveedor": "2024-12-14"},
+    {"id_proveedor": 4, "fecha_movimiento_proveedor": "2024-12-14"},
+    {"id_proveedor": 5, "fecha_movimiento_proveedor": "2024-12-14"},
+    {"id_proveedor": 6, "fecha_movimiento_proveedor": "2024-12-14"},
+    {"id_proveedor": 7, "fecha_movimiento_proveedor": "2024-12-14"},
+    {"id_proveedor": 8, "fecha_movimiento_proveedor": "2024-12-14"},
+    {"id_proveedor": 9, "fecha_movimiento_proveedor": "2024-12-14"},
+    {"id_proveedor": 10, "fecha_movimiento_proveedor": "2024-12-14"}
+  ],
+  "detalle_movimiento_proveedor": [
+    {"id_producto": 1, "id_orden_movimiento": 1, "cantidad": 20, "id_inventario": 1, "observaciones": "Reposición stock"},
+    {"id_producto": 2, "id_orden_movimiento": 2, "cantidad": 25, "id_inventario": 2, "observaciones": "Reposición stock"},
+    {"id_producto": 3, "id_orden_movimiento": 3, "cantidad": 50, "id_inventario": 3, "observaciones": "Material para obra grande"},
+    {"id_producto": 4, "id_orden_movimiento": 4, "cantidad": 40, "id_inventario": 4, "observaciones": "Material para obra pequeña"},
+    {"id_producto": 5, "id_orden_movimiento": 5, "cantidad": 30, "id_inventario": 5, "observaciones": "Requerido por cliente frecuente"},
+    {"id_producto": 6, "id_orden_movimiento": 6, "cantidad": 15, "id_inventario": 6, "observaciones": "Reemplazo de inventario"},
+    {"id_producto": 7, "id_orden_movimiento": 7, "cantidad": 10, "id_inventario": 7, "observaciones": "Demanda reciente"},
+    {"id_producto": 8, "id_orden_movimiento": 8, "cantidad": 30, "id_inventario": 8, "observaciones": "Pedido especial"},
+    {"id_producto": 9, "id_orden_movimiento": 9, "cantidad": 20, "id_inventario": 9, "observaciones": "Demanda alta"},
+    {"id_producto": 10, "id_orden_movimiento": 10, "cantidad": 25, "id_inventario": 10, "observaciones": "Requerido por promoción reciente"}
+  ],
+  "facturas_proveedor": [
+    {"id_detalle_movimiento": 1, "fecha_movimiento": "2024-12-14", "total_movimiento": 310.00},
+    {"id_detalle_movimiento": 2, "fecha_movimiento": "2024-12-14", "total_movimiento": 250.00},
+    {"id_detalle_movimiento": 3, "fecha_movimiento": "2024-12-14", "total_movimiento": 2250.00},
+    {"id_detalle_movimiento": 4, "fecha_movimiento": "2024-12-14", "total_movimiento": 1200.00},
+    {"id_detalle_movimiento": 5, "fecha_movimiento": "2024-12-14", "total_movimiento": 3000.00},
+    {"id_detalle_movimiento": 6, "fecha_movimiento": "2024-12-14", "total_movimiento": 1200.00},
+    {"id_detalle_movimiento": 7, "fecha_movimiento": "2024-12-14", "total_movimiento": 600.00},
+    {"id_detalle_movimiento": 8, "fecha_movimiento": "2024-12-14", "total_movimiento": 750.00},
+    {"id_detalle_movimiento": 9, "fecha_movimiento": "2024-12-14", "total_movimiento": 300.00},
+    {"id_detalle_movimiento": 10, "fecha_movimiento": "2024-12-14", "total_movimiento": 900.00}
+  ],
+  "ordenes_compra": [
+    {"id_cliente": 1, "id_vendedor": 1},
+    {"id_cliente": 2, "id_vendedor": 2},
+    {"id_cliente": 3, "id_vendedor": 3},
+    {"id_cliente": 4, "id_vendedor": 4},
+    {"id_cliente": 5, "id_vendedor": 5},
+    {"id_cliente": 6, "id_vendedor": 6},
+    {"id_cliente": 7, "id_vendedor": 7},
+    {"id_cliente": 8, "id_vendedor": 8},
+    {"id_cliente": 9, "id_vendedor": 9},
+    {"id_cliente": 10, "id_vendedor": 10}
+  ],
+  "detalle_orden": [
+    {"id_orden": 1, "id_producto": 1, "cantidad": 3},
+    {"id_orden": 2, "id_producto": 2, "cantidad": 5},
+    {"id_orden": 3, "id_producto": 3, "cantidad": 10},
+    {"id_orden": 4, "id_producto": 4, "cantidad": 8},
+    {"id_orden": 5, "id_producto": 5, "cantidad": 6},
+    {"id_orden": 6, "id_producto": 6, "cantidad": 4},
+    {"id_orden": 7, "id_producto": 7, "cantidad": 2},
+    {"id_orden": 8, "id_producto": 8, "cantidad": 7},
+    {"id_orden": 9, "id_producto": 9, "cantidad": 5},
+    {"id_orden": 10, "id_producto": 10, "cantidad": 9}
+  ],
+  "facturas": [
+    {"id_detalle_orden": 1, "fecha": "2024-12-14", "id_metodo_pago": 1, "total": 46.50},
+    {"id_detalle_orden": 2, "fecha": "2024-12-14", "id_metodo_pago": 2, "total": 50.00},
+    {"id_detalle_orden": 3, "fecha": "2024-12-14", "id_metodo_pago": 3, "total": 450.00},
+    {"id_detalle_orden": 4, "fecha": "2024-12-14", "id_metodo_pago": 4, "total": 240.00},
+    {"id_detalle_orden": 5, "fecha": "2024-12-14", "id_metodo_pago": 5, "total": 180.00},
+    {"id_detalle_orden": 6, "fecha": "2024-12-14", "id_metodo_pago": 6, "total": 60.00},
+    {"id_detalle_orden": 7, "fecha": "2024-12-14", "id_metodo_pago": 7, "total": 240.00},
+    {"id_detalle_orden": 8, "fecha": "2024-12-14", "id_metodo_pago": 8, "total": 84.00},
+    {"id_detalle_orden": 9, "fecha": "2024-12-14", "id_metodo_pago": 9, "total": 75.00},
+    {"id_detalle_orden": 10, "fecha": "2024-12-14", "id_metodo_pago": 10, "total": 675.00}
+  ]
+}
