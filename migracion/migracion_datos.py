@@ -9,7 +9,7 @@ db = client['FerreteriaLuchito']
 with open('FerreteriaLuchito.json', 'r') as f:
     data = json.load(f)
 
-# Insertar los datos en las colecciones correspondientes
+# Insertar los datos en las colecciones correspondientess
 def insert_data():
     # Insertar cada tabla en la colección respectiva
     db.tipo_documento.insert_many(data["tipo_documento"])
