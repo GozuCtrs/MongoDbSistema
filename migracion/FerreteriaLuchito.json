@@ -19,7 +19,7 @@
     {"id_persona":5,"nombre": "Elena", "apellidos": "Gomez", "documento_identidad": "00000005", "id_tipo_documento": 1, "direccion": "Av. Las Flores 202", "telefono": "987654325", "email": "elena.gomez@example.com"},
     {"id_persona":6,"nombre": "Pedro", "apellidos": "Fernandez", "documento_identidad": "00000006", "id_tipo_documento": 1, "direccion": "Jr. Libertad 303", "telefono": "987654326", "email": "pedro.fernandez@example.com"},
     {"id_persona":7,"nombre": "Maria", "apellidos": "Lopez", "documento_identidad": "00000007", "id_tipo_documento": 1, "direccion": "Calle Estrella 404", "telefono": "987654327", "email": "maria.lopez@example.com"},
-    {"id_persona":8,"nombre": "Sofía", "apellidos": "Jimenez", "documento_identidad": "00000008", "id_tipo_documento": 1, "direccion": "Av. Paz 505", "telefono": "987654328", "email": "sofia.jimenez@example.com"},
+    {"id_persona":8,"nombre": "Sofia", "apellidos": "Jimenez", "documento_identidad": "00000008", "id_tipo_documento": 1, "direccion": "Av. Paz 505", "telefono": "987654328", "email": "sofia.jimenez@example.com"},
     {"id_persona":9,"nombre": "Roberto", "apellidos": "Salazar", "documento_identidad": "00000009", "id_tipo_documento": 1, "direccion": "Jr. Amanecer 606", "telefono": "987654329", "email": "roberto.salazar@example.com"},
     {"id_persona":10,"nombre": "Julia", "apellidos": "Vargas", "documento_identidad": "00000010", "id_tipo_documento": 1, "direccion": "Pasaje Luna 707", "telefono": "987654330", "email": "julia.vargas@example.com"}
   ],
@@ -29,25 +29,25 @@
     {"id_cliente":9,"id_persona": 2}, {"id_cliente":10,"id_persona": 1}
   ],
   "vendedores": [
-    {"id_vendedor":1,"id_persona": 1, "area_ventas": "Ferretería Central"},
+    {"id_vendedor":1,"id_persona": 1, "area_ventas": "Ferreteria Central"},
     {"id_vendedor":2,"id_persona": 2, "area_ventas": "Ventas Industriales"},
     {"id_vendedor":3,"id_persona": 3, "area_ventas": "Ventas al Por Mayor"},
     {"id_vendedor":4,"id_persona": 4, "area_ventas": "Soporte Comercial"},
     {"id_vendedor":5,"id_persona": 5, "area_ventas": "Proyectos Especiales"},
     {"id_vendedor":6,"id_persona": 6, "area_ventas": "Ventas Menudeo"},
     {"id_vendedor":7,"id_persona": 7, "area_ventas": "E-commerce"},
-    {"id_vendedor":8,"id_persona": 8, "area_ventas": "Atención al Cliente"},
-    {"id_vendedor":9,"id_persona": 9, "area_ventas": "Ventas Técnicas"},
+    {"id_vendedor":8,"id_persona": 8, "area_ventas": "Atencion al Cliente"},
+    {"id_vendedor":9,"id_persona": 9, "area_ventas": "Ventas Tecnicas"},
     {"id_vendedor":10,"id_persona": 10, "area_ventas": "Sucursal Norte"}
   ],
   "metodo_pago": [
-    {"id_metodo_pago":1,"nombre_metodo": "Efectivo"}, {"id_metodo_pago":1,"nombre_metodo": "Tarjeta de Crédito"}, {"id_metodo_pago":3,"nombre_metodo": "Tarjeta de Débito"},
+    {"id_metodo_pago":1,"nombre_metodo": "Efectivo"}, {"id_metodo_pago":1,"nombre_metodo": "Tarjeta de Credito"}, {"id_metodo_pago":3,"nombre_metodo": "Tarjeta de Debito"},
     {"id_metodo_pago":4,"nombre_metodo": "Transferencia Bancaria"}, {"id_metodo_pago":5,"nombre_metodo": "Cheque"}, {"id_metodo_pago":6,"nombre_metodo": "Yape"},
-    {"id_metodo_pago":7,"nombre_metodo": "Plin"}, {"id_metodo_pago":8,"nombre_metodo": "Pago Link"}, {"id_metodo_pago":9,"nombre_metodo": "Crédito Directo"}, {"id_metodo_pago":10,"nombre_metodo": "Otro"}
+    {"id_metodo_pago":7,"nombre_metodo": "Plin"}, {"id_metodo_pago":8,"nombre_metodo": "Pago Link"}, {"id_metodo_pago":9,"nombre_metodo": "Credito Directo"}, {"id_metodo_pago":10,"nombre_metodo": "Otro"}
   ],
   "categoria": [
-    {"id_categoria":1,"nombre_categoria": "Herramientas"}, {"id_categoria":2,"nombre_categoria": "Materiales de Construcción"}, {"id_categoria":3,"nombre_categoria": "Eléctricos"},
-    {"id_categoria":4,"nombre_categoria": "Pinturas"}, {"id_categoria":5,"nombre_categoria": "Fontanería"}, {"id_categoria":6,"nombre_categoria": "Seguridad"},
+    {"id_categoria":1,"nombre_categoria": "Herramientas"}, {"id_categoria":2,"nombre_categoria": "Materiales de Construccion"}, {"id_categoria":3,"nombre_categoria": "Electricos"},
+    {"id_categoria":4,"nombre_categoria": "Pinturas"}, {"id_categoria":5,"nombre_categoria": "Fontaneria"}, {"id_categoria":6,"nombre_categoria": "Seguridad"},
     {"id_categoria":7,"nombre_categoria": "Maquinaria"}, {"id_categoria":8,"nombre_categoria": "Adhesivos"}, {"id_categoria":9,"nombre_categoria": "Madera"}, {"id_categoria":10,"nombre_categoria": "Accesorios"}
   ],
   "productos": [
@@ -55,9 +55,9 @@
     {"id_producto":2,"id_categoria": 1, "nombre": "Destornillador", "precio_magnitud": null, "precio_unitario": 10.00, "liquidacion": 0, "tipo_magnitud": null, "tipo_de_venta": 0},
     {"id_producto":3,"id_categoria": 2, "nombre": "Cemento", "precio_magnitud": 45.00, "precio_unitario": null, "liquidacion": 0, "tipo_magnitud": "kg", "tipo_de_venta": 1},
     {"id_producto":4,"id_categoria": 2, "nombre": "Arena", "precio_magnitud": 30.00, "precio_unitario": null, "liquidacion": 0, "tipo_magnitud": "m3", "tipo_de_venta": 1},
-    {"id_producto":5,"id_categoria": 3, "nombre": "Cable Eléctrico", "precio_magnitud": 100.00, "precio_unitario": null, "liquidacion": 0, "tipo_magnitud": "m", "tipo_de_venta": 1},
+    {"id_producto":5,"id_categoria": 3, "nombre": "Cable Electrico", "precio_magnitud": 100.00, "precio_unitario": null, "liquidacion": 0, "tipo_magnitud": "m", "tipo_de_venta": 1},
     {"id_producto":6,"id_categoria": 3, "nombre": "Interruptor", "precio_magnitud": null, "precio_unitario": 5.00, "liquidacion": 0, "tipo_magnitud": null, "tipo_de_venta": 0},
-    {"id_producto":7,"id_categoria": 4, "nombre": "Pintura Blanca", "precio_magnitud": 120.00, "precio_unitario": null, "liquidacion": 0, "tipo_magnitud": "galón", "tipo_de_venta": 1},
+    {"id_producto":7,"id_categoria": 4, "nombre": "Pintura Blanca", "precio_magnitud": 120.00, "precio_unitario": null, "liquidacion": 0, "tipo_magnitud": "galon", "tipo_de_venta": 1},
     {"id_producto":8,"id_categoria": 5, "nombre": "Llave Inglesa", "precio_magnitud": null, "precio_unitario": 25.00, "liquidacion": 0, "tipo_magnitud": null, "tipo_de_venta": 0},
     {"id_producto":9,"id_categoria": 5, "nombre": "Tubo PVC", "precio_magnitud": 15.00, "precio_unitario": null, "liquidacion": 0, "tipo_magnitud": "m", "tipo_de_venta": 1},
     {"id_producto":10,"id_categoria": 6, "nombre": "Guantes de Seguridad", "precio_magnitud": null, "precio_unitario": 12.00, "liquidacion": 0, "tipo_magnitud": null, "tipo_de_venta": 0}
@@ -77,7 +77,7 @@
   "proveedores": [
     {"id_proveedor":1,"nombre": "Proveedor 1", "telefono": "999111111", "email": "prov1@example.com", "productos_suministrados": "Martillo, Destornillador"},
     {"id_proveedor":2,"nombre": "Proveedor 2", "telefono": "999222222", "email": "prov2@example.com", "productos_suministrados": "Cemento, Arena"},
-    {"id_proveedor":3,"nombre": "Proveedor 3", "telefono": "999333333", "email": "prov3@example.com", "productos_suministrados": "Cable Eléctrico, Interruptor"},
+    {"id_proveedor":3,"nombre": "Proveedor 3", "telefono": "999333333", "email": "prov3@example.com", "productos_suministrados": "Cable Electrico, Interruptor"},
     {"id_proveedor":4,"nombre": "Proveedor 4", "telefono": "999444444", "email": "prov4@example.com", "productos_suministrados": "Pintura Blanca"},
     {"id_proveedor":5,"nombre": "Proveedor 5", "telefono": "999555555", "email": "prov5@example.com", "productos_suministrados": "Llave Inglesa, Tubo PVC"},
     {"id_proveedor":6,"nombre": "Proveedor 6", "telefono": "999666666", "email": "prov6@example.com", "productos_suministrados": "Guantes de Seguridad"},
@@ -99,8 +99,8 @@
     {"id_orden_movimiento":10,"id_proveedor": 10, "fecha_movimiento_proveedor": "2024-12-14"}
   ],
   "detalle_movimiento_proveedor": [
-    {"id_detalle_movimiento":1,"id_producto": 1, "id_orden_movimiento": 1, "cantidad": 20, "id_inventario": 1, "observaciones": "Reposición stock"},
-    {"id_detalle_movimiento":2,"id_producto": 2, "id_orden_movimiento": 2, "cantidad": 25, "id_inventario": 2, "observaciones": "Reposición stock"},
+    {"id_detalle_movimiento":1,"id_producto": 1, "id_orden_movimiento": 1, "cantidad": 20, "id_inventario": 1, "observaciones": "Reposicion stock"},
+    {"id_detalle_movimiento":2,"id_producto": 2, "id_orden_movimiento": 2, "cantidad": 25, "id_inventario": 2, "observaciones": "Reposicion stock"},
     {"id_detalle_movimiento":3,"id_producto": 3, "id_orden_movimiento": 3, "cantidad": 50, "id_inventario": 3, "observaciones": "Material para obra grande"},
     {"id_detalle_movimiento":4,"id_producto": 4, "id_orden_movimiento": 4, "cantidad": 40, "id_inventario": 4, "observaciones": "Material para obra pequeña"},
     {"id_detalle_movimiento":5,"id_producto": 5, "id_orden_movimiento": 5, "cantidad": 30, "id_inventario": 5, "observaciones": "Requerido por cliente frecuente"},
@@ -108,7 +108,7 @@
     {"id_detalle_movimiento":7,"id_producto": 7, "id_orden_movimiento": 7, "cantidad": 10, "id_inventario": 7, "observaciones": "Demanda reciente"},
     {"id_detalle_movimiento":8,"id_producto": 8, "id_orden_movimiento": 8, "cantidad": 30, "id_inventario": 8, "observaciones": "Pedido especial"},
     {"id_detalle_movimiento":9,"id_producto": 9, "id_orden_movimiento": 9, "cantidad": 20, "id_inventario": 9, "observaciones": "Demanda alta"},
-    {"id_detalle_movimiento":10,"id_producto": 10, "id_orden_movimiento": 10, "cantidad": 25, "id_inventario": 10, "observaciones": "Requerido por promoción reciente"}
+    {"id_detalle_movimiento":10,"id_producto": 10, "id_orden_movimiento": 10, "cantidad": 25, "id_inventario": 10, "observaciones": "Requerido por promocion reciente"}
   ],
   "facturas_proveedor": [
     {"id_factura_proveedor":1,"id_detalle_movimiento": 1, "fecha_movimiento": "2024-12-14", "total_movimiento": 310.00},

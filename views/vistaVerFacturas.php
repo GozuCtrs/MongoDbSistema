@@ -19,13 +19,16 @@ function mostrarListaFacturas($facturas, $mensaje = '')
                         <th>Vendedor</th>
                         <th>Producto</th>
                         <th>Total Factura</th>
+                        <th>Metodo Pago</th>
                         <th>Acciones</th>
                     </tr>
                     <?php foreach ($facturas as $factura) { 
                         $cliente = isset($factura['cliente']) ? $factura['cliente']['nombre'] . ' ' . $factura['cliente']['apellidos'] : 'No disponible';
                         $vendedor = isset($factura['vendedor']) ? $factura['vendedor']['nombre'] . ' ' . $factura['vendedor']['apellidos'] : 'No disponible';
                         $producto = $factura['producto'] ?? 'No especificado';
-                        $totalFactura = $factura['totalFactura'] ?? '0.00';
+                        $total = $factura['total'] ?? '0.00';
+                        $metodo_pago = $factura['metodo_pago'] ?? 'No especificado';
+                        //$metodo_pago = isset($factura['metodo_pago']) ? $factura['metodo_pago']['nombre_metodo'] : 'No disponible';
                     ?>
                         <tr>
                             <td><?php echo $factura['_id']; ?></td>
@@ -33,7 +36,8 @@ function mostrarListaFacturas($facturas, $mensaje = '')
                             <td><?php echo $cliente; ?></td>
                             <td><?php echo $vendedor; ?></td>
                             <td><?php echo $producto; ?></td>
-                            <td><?php echo $totalFactura; ?></td>
+                            <td><?php echo $total; ?></td>
+                            <td><?php echo $metodo_pago; ?></td>
                             <td>
                                 <a href="javascript:void(0);" class="btn_eliminar" onclick="confirmarEliminacion('<?php echo $factura['_id']; ?>');">Eliminar</a>
                                 <a href="?opcion=ver_facturas&edit_id=<?php echo $factura['_id']; ?>">Editar</a>

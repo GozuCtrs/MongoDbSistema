@@ -15,117 +15,148 @@ class modeloFacturas
     $coleccion = $this->conexion->facturas;
 
     return $coleccion->aggregate([
-        // Unir detalle_orden con filtro y limitar resultados a uno por seguridad
         [
             '$lookup' => [
                 'from' => 'detalle_orden',
-                'let' => ['id_detalle' => '$id_detalle_orden'],
-                'pipeline' => [
-                    ['$match' => ['$expr' => ['$eq' => ['$id_detalle_orden', '$$id_detalle']]]],
-
-                ],
+                'localField' => 'id_detalle_orden',
+                'foreignField' => 'id_detalle_orden',
                 'as' => 'detalle'
             ]
         ],
-        ['$unwind' => ['path' => '$detalle', 'preserveNullAndEmptyArrays' => true]],
-
-        // Unir productos con filtro y limitar resultados
+        // Add $unwind with preserveNullAndEmptyArrays and includeArrayIndex
+        ['$unwind' => [
+            'path' => '$detalle', 
+            'preserveNullAndEmptyArrays' => true,
+            'includeArrayIndex' => 'detailIndex'
+        ]],
+    
         [
             '$lookup' => [
                 'from' => 'productos',
-                'let' => ['id_producto' => '$detalle.id_producto'],
-                'pipeline' => [
-                    ['$match' => ['$expr' => ['$eq' => ['$id_producto', '$$id_producto']]]],
-                    
-                ],
+                'localField' => 'detalle.id_producto',
+                'foreignField' => 'id_producto',
                 'as' => 'producto'
             ]
         ],
-        ['$unwind' => ['path' => '$producto', 'preserveNullAndEmptyArrays' => true]],
-
-        // Unir ordenes_compra
+        ['$unwind' => [
+            'path' => '$producto', 
+            'preserveNullAndEmptyArrays' => true,
+            'includeArrayIndex' => 'productIndex'
+        ]],
+    
         [
             '$lookup' => [
                 'from' => 'ordenes_compra',
-                'let' => ['id_orden' => '$detalle.id_orden_compra'],
-                'pipeline' => [
-                    ['$match' => ['$expr' => ['$eq' => ['$id_orden_compra', '$$id_orden']]]],
-                    ['$limit' => 1]
-                ],
+                'localField' => 'detalle.id_orden',
+                'foreignField' => 'id_orden',
                 'as' => 'orden'
             ]
         ],
-        ['$unwind' => ['path' => '$orden', 'preserveNullAndEmptyArrays' => true]],
-
-        // Unir cliente
+        ['$unwind' => [
+            'path' => '$orden', 
+            'preserveNullAndEmptyArrays' => true,
+            'includeArrayIndex' => 'orderIndex'
+        ]],
+    
         [
             '$lookup' => [
                 'from' => 'clientes',
-                'let' => ['id_cliente' => '$orden.id_cliente'],
-                'pipeline' => [
-                    ['$match' => ['$expr' => ['$eq' => ['$id_cliente', '$$id_cliente']]]],
-                    
-                ],
+                'localField' => 'orden.id_cliente',
+                'foreignField' => 'id_cliente',
+                'as' => 'cliente_info'
+            ]
+        ],
+        ['$unwind' => [
+            'path' => '$cliente_info', 
+            'preserveNullAndEmptyArrays' => true,
+            'includeArrayIndex' => 'clienteInfoIndex'
+        ]],
+    
+        [
+            '$lookup' => [
+                'from' => 'persona',
+                'localField' => 'cliente_info.id_persona',
+                'foreignField' => 'id_persona',
                 'as' => 'cliente'
             ]
         ],
-        ['$unwind' => ['path' => '$cliente', 'preserveNullAndEmptyArrays' => true]],
-
-        // Unir datos personales del cliente
-        [
-            '$lookup' => [
-                'from' => 'persona',
-                'let' => ['id_persona' => '$cliente.id_persona'],
-                'pipeline' => [
-                    ['$match' => ['$expr' => ['$eq' => ['$id_persona', '$$id_persona']]]],
-                    ['$limit' => 1]
-                ],
-                'as' => 'cliente.persona'
-            ]
-        ],
-        ['$unwind' => ['path' => '$cliente.persona', 'preserveNullAndEmptyArrays' => true]],
-
-        // Unir vendedor
+        ['$unwind' => [
+            'path' => '$cliente', 
+            'preserveNullAndEmptyArrays' => true,
+            'includeArrayIndex' => 'clienteIndex'
+        ]],
+    
         [
             '$lookup' => [
                 'from' => 'vendedores',
-                'let' => ['id_vendedor' => '$orden.id_vendedor'],
-                'pipeline' => [
-                    ['$match' => ['$expr' => ['$eq' => ['$id_vendedor', '$$id_vendedor']]]],
-                    
-                ],
-                'as' => 'vendedor'
+                'localField' => 'orden.id_vendedor',
+                'foreignField' => 'id_vendedor',
+                'as' => 'vendedor_info'
             ]
         ],
-        ['$unwind' => ['path' => '$vendedor', 'preserveNullAndEmptyArrays' => true]],
-
-        // Unir datos personales del vendedor
+        ['$unwind' => [
+            'path' => '$vendedor_info', 
+            'preserveNullAndEmptyArrays' => true,
+            'includeArrayIndex' => 'vendedorInfoIndex'
+        ]],
+    
         [
             '$lookup' => [
                 'from' => 'persona',
-                'let' => ['id_persona' => '$vendedor.id_persona'],
-                'pipeline' => [
-                    ['$match' => ['$expr' => ['$eq' => ['$id_persona', '$$id_persona']]]],
-                        
-                ],
-                'as' => 'vendedor.persona'
+                'localField' => 'vendedor_info.id_persona',
+                'foreignField' => 'id_persona',
+                'as' => 'vendedor'
             ]
         ],
-        ['$unwind' => ['path' => '$vendedor.persona', 'preserveNullAndEmptyArrays' => true]],
-
-        // Proyección final
+        ['$unwind' => [
+            'path' => '$vendedor', 
+            'preserveNullAndEmptyArrays' => true,
+            'includeArrayIndex' => 'vendedorIndex'
+        ]],
+    
+        [
+            '$lookup' => [
+                'from' => 'metodo_pago',
+                'localField' => 'id_metodo_pago',
+                'foreignField' => 'id_metodo_pago',
+                'as' => 'metodo_pago'
+            ]
+        ],
+        ['$unwind' => [
+            'path' => '$metodo_pago', 
+            'preserveNullAndEmptyArrays' => true,
+            'includeArrayIndex' => 'metodoPagoIndex'
+        ]],
+    
+        // Add $group stage to remove duplicates
+        [
+            '$group' => [
+                '_id' => '$_id',
+                'fecha' => ['$first' => '$fecha'],
+                'cliente' => ['$first' => '$cliente'],
+                'vendedor' => ['$first' => '$vendedor'],
+                'producto' => ['$first' => '$producto.nombre'],
+                'total' => ['$first' => '$total'],
+                'metodo_pago' => ['$first' => '$metodo_pago.nombre_metodo']
+            ]
+        ],
+    
         [
             '$project' => [
-                '_id' => 5,
+                '_id' => 1,
                 'fecha' => 1,
-                'cliente' => '$cliente.persona',
-                'vendedor' => '$vendedor.persona',
-                'producto' => '$producto.nombre',
-                'total' => '$total',
+                'cliente' => 1,
+                'vendedor' => 1,
+                'producto' => 1,
+                'total' => 1,
+                'metodo_pago' => 1
             ]
         ]
     ])->toArray();
 }
+
+
+
 
     
 
