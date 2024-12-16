@@ -25,9 +25,9 @@ switch ($opcionActual) {
         include get_controllers_disk("controladorAdministradores.php");
         $contenido = ob_get_clean();
         break;
-    case 'ingresar':
+    case 'ver_facturas':
         ob_start();
-        include get_controllers_disk("controladorIngresarUsuario.php");
+        include get_controllers_disk("controladorVerFacturas.php");
         $contenido = ob_get_clean();
         break;
     default:

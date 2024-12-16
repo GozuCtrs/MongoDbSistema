@@ -25,6 +25,12 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/etc/config.php';
                 <div class="linea_separadora_listas_paginas"></div>
                 <li class="btn_subtitulo">colecciones</li>
                 <li class="btn_pagina"><a href="?opcion=administradores" class="<?= $opcionActual == 'administradores' ? 'active' : '' ?>">Administradores</a></li>
+                
+                <div class="linea_separadora_listas_paginas"></div>
+                <li class="btn_subtitulo">Procesos</li>
+                <li class="btn_pagina"><a href="?opcion=ver_facturas" class="<?= $opcionActual == 'ver_facturas' ? 'active' : '' ?>">Ver facturas</a></li>
+                <li class="btn_pagina"><a href="?opcion=crear_facturas" class="<?= $opcionActual == 'crear_facturas' ? 'active' : '' ?>">Crear facturas</a></li>
+                
                 <li class="btn_cerrar_sesion"><a href="<?php echo get_controllers('logout.php') ?>">Cerrar sesión</a></li>
             </ul>
         </nav>
