@@ -23,11 +23,9 @@ class modeloFacturas
                 'as' => 'detalle'
             ]
         ],
-        // Add $unwind with preserveNullAndEmptyArrays and includeArrayIndex
         ['$unwind' => [
             'path' => '$detalle', 
-            'preserveNullAndEmptyArrays' => true,
-            'includeArrayIndex' => 'detailIndex'
+            'preserveNullAndEmptyArrays' => true
         ]],
     
         [
@@ -40,8 +38,7 @@ class modeloFacturas
         ],
         ['$unwind' => [
             'path' => '$producto', 
-            'preserveNullAndEmptyArrays' => true,
-            'includeArrayIndex' => 'productIndex'
+            'preserveNullAndEmptyArrays' => true
         ]],
     
         [
@@ -54,8 +51,7 @@ class modeloFacturas
         ],
         ['$unwind' => [
             'path' => '$orden', 
-            'preserveNullAndEmptyArrays' => true,
-            'includeArrayIndex' => 'orderIndex'
+            'preserveNullAndEmptyArrays' => true
         ]],
     
         [
@@ -68,8 +64,7 @@ class modeloFacturas
         ],
         ['$unwind' => [
             'path' => '$cliente_info', 
-            'preserveNullAndEmptyArrays' => true,
-            'includeArrayIndex' => 'clienteInfoIndex'
+            'preserveNullAndEmptyArrays' => true
         ]],
     
         [
@@ -82,8 +77,7 @@ class modeloFacturas
         ],
         ['$unwind' => [
             'path' => '$cliente', 
-            'preserveNullAndEmptyArrays' => true,
-            'includeArrayIndex' => 'clienteIndex'
+            'preserveNullAndEmptyArrays' => true
         ]],
     
         [
@@ -96,8 +90,7 @@ class modeloFacturas
         ],
         ['$unwind' => [
             'path' => '$vendedor_info', 
-            'preserveNullAndEmptyArrays' => true,
-            'includeArrayIndex' => 'vendedorInfoIndex'
+            'preserveNullAndEmptyArrays' => true
         ]],
     
         [
@@ -110,8 +103,7 @@ class modeloFacturas
         ],
         ['$unwind' => [
             'path' => '$vendedor', 
-            'preserveNullAndEmptyArrays' => true,
-            'includeArrayIndex' => 'vendedorIndex'
+            'preserveNullAndEmptyArrays' => true
         ]],
     
         [
@@ -124,11 +116,9 @@ class modeloFacturas
         ],
         ['$unwind' => [
             'path' => '$metodo_pago', 
-            'preserveNullAndEmptyArrays' => true,
-            'includeArrayIndex' => 'metodoPagoIndex'
+            'preserveNullAndEmptyArrays' => true
         ]],
     
-        // Add $group stage to remove duplicates
         [
             '$group' => [
                 '_id' => '$_id',
@@ -136,6 +126,10 @@ class modeloFacturas
                 'cliente' => ['$first' => '$cliente'],
                 'vendedor' => ['$first' => '$vendedor'],
                 'producto' => ['$first' => '$producto.nombre'],
+                'tipo_magnitud' => ['$first' => '$producto.tipo_magnitud'],
+                'cantidad' => ['$first' => '$detalle.cantidad'],
+                'precio_magnitud' => ['$first' => '$producto.precio_magnitud'],
+                'precio_unitario' => ['$first' => '$producto.precio_unitario'],
                 'total' => ['$first' => '$total'],
                 'metodo_pago' => ['$first' => '$metodo_pago.nombre_metodo']
             ]
@@ -148,6 +142,10 @@ class modeloFacturas
                 'cliente' => 1,
                 'vendedor' => 1,
                 'producto' => 1,
+                'tipo_magnitud' => 1,
+                'cantidad' => 1,
+                'precio_magnitud' => 1,
+                'precio_unitario' => 1,
                 'total' => 1,
                 'metodo_pago' => 1
             ]

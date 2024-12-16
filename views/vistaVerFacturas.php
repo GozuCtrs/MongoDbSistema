@@ -18,6 +18,9 @@ function mostrarListaFacturas($facturas, $mensaje = '')
                         <th>Cliente</th>
                         <th>Vendedor</th>
                         <th>Producto</th>
+                        <th>Precio magnitud</th>
+                        <th>Precio unitario</th>
+                        <th>Cantidad</th>
                         <th>Total Factura</th>
                         <th>Metodo Pago</th>
                         <th>Acciones</th>
@@ -26,9 +29,15 @@ function mostrarListaFacturas($facturas, $mensaje = '')
                         $cliente = isset($factura['cliente']) ? $factura['cliente']['nombre'] . ' ' . $factura['cliente']['apellidos'] : 'No disponible';
                         $vendedor = isset($factura['vendedor']) ? $factura['vendedor']['nombre'] . ' ' . $factura['vendedor']['apellidos'] : 'No disponible';
                         $producto = $factura['producto'] ?? 'No especificado';
+                        $tipo_magnitud = $factura['tipo_magnitud'] ?? '';
+                        $precio_magnitud = $factura['precio_magnitud'] ?? '';
+                        $precio_unitario = $factura['precio_unitario'] ?? '';
+                        $cantidad = $factura['cantidad'] ?? '--.--';
                         $total = $factura['total'] ?? '0.00';
                         $metodo_pago = $factura['metodo_pago'] ?? 'No especificado';
-                        //$metodo_pago = isset($factura['metodo_pago']) ? $factura['metodo_pago']['nombre_metodo'] : 'No disponible';
+                        
+
+
                     ?>
                         <tr>
                             <td><?php echo $factura['_id']; ?></td>
@@ -36,6 +45,10 @@ function mostrarListaFacturas($facturas, $mensaje = '')
                             <td><?php echo $cliente; ?></td>
                             <td><?php echo $vendedor; ?></td>
                             <td><?php echo $producto; ?></td>
+                            <td><?php echo $tipo_magnitud; ?></td>
+                            <td><?php echo $precio_magnitud; ?></td>
+                            <td><?php echo $precio_unitario; ?></td>
+                            <td><?php echo $cantidad; ?></td>
                             <td><?php echo $total; ?></td>
                             <td><?php echo $metodo_pago; ?></td>
                             <td>

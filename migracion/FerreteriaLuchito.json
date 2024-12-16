@@ -151,11 +151,11 @@
     {"id_factura":2,"id_detalle_orden": 2, "fecha": "2024-12-01T00:00:00Z", "id_metodo_pago": 2, "total": 50.00},
     {"id_factura":3,"id_detalle_orden": 3, "fecha": "2024-12-01T00:00:00Z", "id_metodo_pago": 3, "total": 450.00},
     {"id_factura":4,"id_detalle_orden": 4, "fecha": "2024-12-01T00:00:00Z", "id_metodo_pago": 4, "total": 240.00},
-    {"id_factura":5,"id_detalle_orden": 5, "fecha": "2024-12-01T00:00:00Z", "id_metodo_pago": 5, "total": 180.00},
-    {"id_factura":6,"id_detalle_orden": 6, "fecha": "2024-12-01T00:00:00Z", "id_metodo_pago": 6, "total": 60.00},
+    {"id_factura":5,"id_detalle_orden": 5, "fecha": "2024-12-01T00:00:00Z", "id_metodo_pago": 5, "total": 600.00},
+    {"id_factura":6,"id_detalle_orden": 6, "fecha": "2024-12-01T00:00:00Z", "id_metodo_pago": 6, "total": 20.00},
     {"id_factura":7,"id_detalle_orden": 7, "fecha": "2024-12-01T00:00:00Z", "id_metodo_pago": 7, "total": 240.00},
-    {"id_factura":8,"id_detalle_orden": 8, "fecha": "2024-12-01T00:00:00Z", "id_metodo_pago": 8, "total": 84.00},
+    {"id_factura":8,"id_detalle_orden": 8, "fecha": "2024-12-01T00:00:00Z", "id_metodo_pago": 8, "total": 175.00},
     {"id_factura":9,"id_detalle_orden": 9, "fecha": "2024-12-01T00:00:00Z", "id_metodo_pago": 9, "total": 75.00},
-    {"id_factura":10,"id_detalle_orden": 10, "fecha": "2024-12-01T00:00:00Z", "id_metodo_pago": 10, "total": 675.00}
+    {"id_factura":10,"id_detalle_orden": 10, "fecha": "2024-12-01T00:00:00Z", "id_metodo_pago": 10, "total": 108.00}
   ]
 }
