@@ -30,6 +30,11 @@ switch ($opcionActual) {
         include get_controllers_disk("controladorVerFacturas.php");
         $contenido = ob_get_clean();
         break;
+    case 'crear_facturas':
+        ob_start();
+        include get_controllers_disk("controladorCrearFacturas.php");
+        $contenido = ob_get_clean();
+        break;
     default:
         http_response_code(400);
         $contenido = "<h1>ERROR </h1>";

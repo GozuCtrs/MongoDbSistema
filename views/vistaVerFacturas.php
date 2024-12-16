@@ -18,6 +18,7 @@ function mostrarListaFacturas($facturas, $mensaje = '')
                         <th>Cliente</th>
                         <th>Vendedor</th>
                         <th>Producto</th>
+                        <th>Tipo magnitud</th>
                         <th>Precio magnitud</th>
                         <th>Precio unitario</th>
                         <th>Cantidad</th>
@@ -29,9 +30,9 @@ function mostrarListaFacturas($facturas, $mensaje = '')
                         $cliente = isset($factura['cliente']) ? $factura['cliente']['nombre'] . ' ' . $factura['cliente']['apellidos'] : 'No disponible';
                         $vendedor = isset($factura['vendedor']) ? $factura['vendedor']['nombre'] . ' ' . $factura['vendedor']['apellidos'] : 'No disponible';
                         $producto = $factura['producto'] ?? 'No especificado';
-                        $tipo_magnitud = $factura['tipo_magnitud'] ?? '';
-                        $precio_magnitud = $factura['precio_magnitud'] ?? '';
-                        $precio_unitario = $factura['precio_unitario'] ?? '';
+                        $tipo_magnitud = $factura['tipo_magnitud'] ?? 'unidad';
+                        $precio_magnitud = $factura['precio_magnitud'] ?? '-';
+                        $precio_unitario = $factura['precio_unitario'] ?? '-';
                         $cantidad = $factura['cantidad'] ?? '--.--';
                         $total = $factura['total'] ?? '0.00';
                         $metodo_pago = $factura['metodo_pago'] ?? 'No especificado';
